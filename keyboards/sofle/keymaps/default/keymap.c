@@ -76,9 +76,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |   !  |   @  |   #  |      |      |                    |   7  |   8  |   9  |   -  |   +  |   =  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTR |   ^  |   &  |   *  |   [  |   ]  |-------.    ,-------|   4  |   5  |   6  |   *  |   /  |   |  |
+ * | LCTR |   ^  |   &  |   *  |   [  |   ]  |-------.    ,-------|   4  |   5  |   6  |   *  |   /  | ENT  |
  * |------+------+------+------+------+------|  MUTE |    | SLEEP |------+------+------+------+------+------|
- * |LShift|      |      |      |   {  |   }  |-------|    |-------|   1  |   2  |   3  |   .  |   \  | Shift|
+ * |LShift|  -_  |  +=  |      |   {  |   }  |-------|    |-------|   1  |   2  |   3  |   .  |   \  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LGUI | LAlt | LCTR | LOWER| / Space /       \ Space\  |RAISE |   0  | RAlt | RGUI |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -86,10 +86,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT( \
   KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,\
-  _______,  KC_EXLM, KC_AT,   KC_HASH, XXXXXXX, XXXXXXX,                         KC_7, KC_8, KC_9, KC_MINS, KC_PLUS, KC_EQL, \
-  _______,  KC_CIRC, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC,                         KC_4, KC_5, KC_6, KC_ASTR, KC_SLSH, KC_PIPE, \
-  _______,  XXXXXXX, XXXXXXX, XXXXXXX, KC_LCBR, KC_RCBR, _______,       _______, KC_1, KC_2, KC_3, KC_DOT, KC_BSLS, _______, \
-                       _______, _______, _______, _______, _______,   _______, _______, KC_0, _______, _______\
+  _______,  KC_EXLM, KC_AT,   KC_HASH, XXXXXXX, XXXXXXX,                         KC_P7, KC_P8, KC_P9, KC_PMNS, KC_PPLS, KC_PEQL, \
+  _______,  KC_CIRC, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC,                         KC_P4, KC_P5, KC_P6, KC_PAST, KC_PSLS, KC_PENT, \
+  _______,  KC_MINS, KC_EQL,  XXXXXXX, KC_LCBR, KC_RCBR, _______,       _______, KC_P1, KC_P2, KC_P3, KC_PDOT, KC_BSLS, _______, \
+                       _______, _______, _______, _______, _______,   _______, _______, KC_P0, _______, _______\
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |      | PREV |MS_UP | NEXT |      |                    |      | PWrd |  Up  | NWrd |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTR | Caps |      |      |      | Home |-------.    ,-------|PageUp| Left | Down | Rigth|      |      |
+ * | LCTR | Caps |      |      |      | Home |-------.    ,-------|PageUp| Left | Down | Rigth|   |  |      |
  * |------+------+------+------+------+------|  MUTE |    | SLEEP |------+------+------+------+------+------|
  * |LShift| Undo |  Cut | Copy | Paste| End  |-------|    |-------|PageDn| LStr |      | LEnd |   \  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT( \
   _______, _______, _______, _______, _______, _______,                           _______, _______,  _______, _______,  _______,  KC_DEL, \
   _______, XXXXXXX, KC_BTN1, KC_MS_U, KC_BTN2,  XXXXXXX,                          XXXXXXX, KC_PRVWD, KC_UP,   KC_NXTWD, KC_DLINE, XXXXXXX, \
-  _______, KC_CAPS, KC_MS_L, KC_MS_D, KC_MS_R,  KC_HOME,                          KC_PGUP, KC_LEFT,  KC_DOWN, KC_RGHT,  XXXXXXX,  XXXXXXX, \
+  _______, KC_CAPS, KC_MS_L, KC_MS_D, KC_MS_R,  KC_HOME,                          KC_PGUP, KC_LEFT,  KC_DOWN, KC_RGHT,  KC_PIPE,  XXXXXXX, \
   _______, KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, KC_END,  _______,       _______,  KC_PGDN, KC_LSTRT, XXXXXXX, KC_LEND,  KC_BSLS,  _______, \
                   _______, _______, _______, _______, _______,             _______, _______, _______, _______, _______ \
 ),
