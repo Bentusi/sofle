@@ -4,7 +4,7 @@
 #define VENDOR_ID       0xFC32
 #define PRODUCT_ID      0x0287
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    JosefAdamcik
+#define MANUFACTURER    JIANG Wei
 #define PRODUCT         Sofle
 #define DESCRIPTION     Sofle is 6×4+5keys+encoder column-staggered split keyboard.
 

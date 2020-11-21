@@ -32,44 +32,54 @@ static void render_logo(void) {
 static void print_status_narrow(void) {
     // Print current mode
     oled_write_P(PSTR("\n\n"), false);
+    oled_write_ln_P(PSTR("MODE"), false);
+    oled_write_ln_P(PSTR(""), false);
+    if (keymap_config.swap_lctl_lgui) {
+        oled_write_ln_P(PSTR("WIN"), false);
+    } else {
+        oled_write_ln_P(PSTR("MAC"), false);
+    }
 
-    switch (get_highest_layer(layer_state)) {
-        case 0:
+    switch (get_highest_layer(default_layer_state)) {
+        case _QWERTY:
             oled_write_ln_P(PSTR("Qwrt"), false);
             break;
-        case 1:
+        case _COLEMAK:
             oled_write_ln_P(PSTR("Clmk"), false);
             break;
         default:
-            oled_write_P(PSTR("Mod\n"), false);
-            break;
+            oled_write_P(PSTR("Undef"), false);
     }
     oled_write_P(PSTR("\n\n"), false);
     // Print current layer
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case 0:
-        case 1:
+        case _COLEMAK:
+        case _QWERTY:
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case 2:
+        case _RAISE:
             oled_write_P(PSTR("Raise"), false);
             break;
-        case 3:
+        case _LOWER:
             oled_write_P(PSTR("Lower"), false);
+            break;
+        case _ADJUST:
+            oled_write_P(PSTR("Adj\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
     oled_write_P(PSTR("\n\n"), false);
     led_t led_usb_state = host_keyboard_led_state();
-    oled_write_ln_P(PSTR("CPSLK"), led_usb_state.caps_lock);
+    oled_write_ln_P(led_usb_state.caps_lock?PSTR("CPSLK"):PSTR("     "), false);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_master()) {
         return OLED_ROTATION_270;
     }
+    //return OLED_ROTATION_270;
     return rotation;
 }
 
